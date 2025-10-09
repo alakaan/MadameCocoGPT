@@ -16,9 +16,13 @@ def get_response_from_model(user_input,config):
     chat = client.chat.completions.create(model="Qwen/Qwen3-8B",
                                          messages= [{"role": "user", "content": user_input}],
                                          temperature=0.2,
-                                         stream = True)
+                                         stream = True,
+                                             extra_body={
+        "chat_template_kwargs": {"enable_thinking": False},
+    })
 
     print("Completion result:", chat)
 
     return chat
+
 
