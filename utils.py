@@ -13,7 +13,7 @@ def get_response_from_model(user_input,config):
         base_url=config["openai_api_base"],
     )
 
-    chat = client.chat.completions.create(model="Qwen/Qwen2.5-1.5B-Instruct",
+    chat = client.chat.completions.create(model="Qwen/Qwen3-8B",
                                          messages= [{"role": "user", "content": user_input}],
                                          temperature=0.2,
                                          stream = True)
@@ -21,3 +21,4 @@ def get_response_from_model(user_input,config):
     print("Completion result:", chat)
 
     return chat
+
